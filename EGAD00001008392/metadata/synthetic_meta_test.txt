@@ -1,0 +1,19 @@
+FID	IID	Gender	Age	Status	Disease	Genotype	Gene	Coordinate	Variant	Effect
+FAM0001814	Case1_IC	M	5	Affected	Congenital myasthenic syndrome	0/1	RYR1	19:39062815G>C	c.13888G>C p.Glu4630Gln	missense
+FAM0001814	Case1_M	F	NA	Healthy	NA	0/0	NA	NA	NA	NA
+FAM0001814	Case1_F	M	NA	Healthy	NA	0/0	NA	NA	NA	NA
+FAM0001815	Case2_IC	M	38	Affected	Macular dystrophy	0/1	PROM1	4:16037357C>T	 c.303+1G>A 	splicing
+FAM0001815	Case2_M	F	NA	Affected	Macular dystrophy	0/1	NA	NA	NA	NA
+FAM0001815	Case2_F	M	NA	Healthy	NA	0/0	NA	NA	NA	NA
+FAM0001816	Case3_IC	M	16	Affected	Muscular dystrophy	0/1	ANO5	11:22257752G>T, 11:22242646C>CA	c.692G>T , c.191dupA p.Asn64LysfsTer15	
+FAM0001816	Case3_M	F	NA	Healthy	NA	0/0	NA	NA	NA	NA
+FAM0001816	Case3_F	M	NA	Healthy	NA	0/0	NA	NA	NA	NA
+FAM0001817	Case4_IC	M	6	Affected	MITOCHONDRIAL DNA DEPLETION SYNDROME 	1/1	POLG	15:89861960A>C	c.3294T>G p.Asn1098Lys 	missense 
+FAM0001817	Case4_M	F	NA	Healthy	NA	0/1	NA	NA	NA	NA
+FAM0001817	Case4_F	M	NA	Healthy	NA	0/1	NA	NA	NA	NA
+FAM0001822	Case5_IC	F	35	Affected	Breast cancer	0/1	BRCA1	17:41215920G>T	c.4235C>A p.Ala1412Glu	missense
+FAM0001822	Case5_M	F	NA	Affected	Breast cancer	0/1	BRCA1	NA	NA	NA
+FAM0001822	Case5_F	M	NA	Healthy	NA	0/0	NA	NA	NA	NA
+FAM0569511	Case6_IC	M	5	Affected	Congenic myasthenic syndrome	0/1	RYR1	19:39062815G>C	c.13888G>C p.Glu4630Gln	missense
+FAM0569511	Case6_M	F	NA	Healthy	NA	0/0	NA	NA	NA	NA
+FAM0569511	Case6_F	M	NA	Healthy	NA	0/0	NA	NA	NA	NA
