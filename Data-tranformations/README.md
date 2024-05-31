@@ -1,0 +1,1 @@
+This folder containes the results from [Map EGA metadata to semantic models #18](https://github.com/NBISweden/ejprd/issues/18). It contains YARRRML-files assumes that can reference EGA metadata files in CSV format named using EGA’s default naming schema.
