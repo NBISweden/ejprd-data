@@ -1,0 +1,18 @@
+prefixes:
+  ega.dataset: https://www.ebi.ac.uk/ega/datasets/
+  NCIT: http://purl.obolibrary.org/obo/NCIT_
+  OMIABIS: http://purl.obolibrary.org/obo/OMIABIS_
+  OBI: http://purl.obolibrary.org/obo/OBI_
+
+mappings:
+  fairgenomes:
+    sources:
+      - [studies.csv~csv]
+    s: ega.dataset:$(accession_id)
+    po:
+      - [a, NCIT:C63536]
+      - [OMIABIS:0000006, ega.dataset:$(accession_id)~iri]
+      - [OMIABIS:0000037, $(title)]
+      - [OMIABIS:0000036, $(description)]
+      - [OMIABIS:0000036, $(abstract)]
+      - [OBI:0500000, $(study_type)]
