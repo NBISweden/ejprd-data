@@ -1,0 +1,22 @@
+prefixes:
+  ega.dataset: https://www.ebi.ac.uk/ega/datasets/
+  NCIT: http://purl.obolibrary.org/obo/NCIT_
+  OMIABIS: http://purl.obolibrary.org/obo/OMIABIS_
+  EDAM: https://bioportal.bioontology.org/ontologies/EDAM?p=classes&conceptid=
+  FIX: http://purl.obolibrary.org/obo/FIX_
+  GENEPIO: http://purl.obolibrary.org/obo/GENEPIO_
+
+
+mappings:
+  fairgenomes:
+    sources:
+      - [experiment.csv~csv] # I am going to name it like this 
+    s: ega.dataset:$(accession_id)
+    po:
+      - [a, EDAM:topic_3168] # I based at experiment is regarded as sequencing
+      - [OMIABIS:0000006, ega.dataset:$(accession_id)~iri] # I am unsure for this one, I will only keep it 
+      - [NCIT:C171337, $(accession_id)] #thi is new, based on sequencing identifier
+      - [FIX:0000704, $(design_description)] #this is new
+      - [GENEPIO:0000071, $(platform)] #this is new
+      - [GENEPIO:0001921, $(model)] #this is new
+      - [OMIABIS:0000006, $(study_accession_id)] #this is new 
