@@ -1,0 +1,26 @@
+prefixes:
+  ega.dataset: https://www.ebi.ac.uk/ega/datasets/
+  NCIT: http://purl.obolibrary.org/obo/NCIT_
+  OMIABIS: http://purl.obolibrary.org/obo/OMIABIS_
+  OBI: http://purl.obolibrary.org/obo/OBI_
+  ARF: http://purl.allotrope.org/ontologies/result# #this is new and it ends with a #
+  EDAM:http://edamontology.org/ 
+  FIX: http://purl.obolibrary.org/obo/FIX_
+  GENEPIO: http://purl.obolibrary.org/obo/GENEPIO_
+
+mappings:
+  fairgenomes:
+    sources:
+      - [analyses.csv~csv]
+    s: ega.dataset:$(accession_id)
+    po:
+      - [a, EDAM:operation_2945] #this refers to analysis from the model
+      - [OMIABIS:0000006, ega.dataset:$(accession_id)~iri] # I am unsure about this
+      - [AFR:0001979, $(accession_id)] #this is new
+      - [EDAM:data_2531, $(description)] #this is new 
+      - [EDAM:data_2531, $(analysis_type)] #this is new 
+      - [FIX:0000704, $(experiment_types)] # this is new
+      - [EDAM:data_2340, $(genome)] # this is new 
+      - [GENEPIO:0000071, $(platform)] #this is new 
+      - [OMIABIS:0000006, $(study_accession_id)] #this is new 
+      - [GENEPIO:0000069, $(created_at)] #this is new 
