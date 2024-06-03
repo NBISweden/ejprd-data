@@ -1,5 +1,5 @@
 prefixes:
-  ega.dataset: https://www.ebi.ac.uk/ega/datasets/
+  ega.analyses: https://metadata.ega-archive.org/analyses/
   NCIT: http://purl.obolibrary.org/obo/NCIT_
   OMIABIS: http://purl.obolibrary.org/obo/OMIABIS_
   OBI: http://purl.obolibrary.org/obo/OBI_
@@ -12,10 +12,10 @@ mappings:
   fairgenomes:
     sources:
       - [analyses.csv~csv]
-    s: ega.dataset:$(accession_id)
+    s: ega.analyses:$(accession_id)
     po:
       - [a, EDAM:operation_2945] #this refers to analysis from the model
-      - [OMIABIS:0000006, ega.dataset:$(accession_id)~iri] # I am unsure about this
+      - [OMIABIS:0000006, ega.analyses:$(accession_id)~iri] # I am unsure about this
       - [AFR:0001979, $(accession_id)] #this is new
       - [EDAM:data_2531, $(description)] #this is new 
       - [EDAM:data_2531, $(analysis_type)] #this is new 
