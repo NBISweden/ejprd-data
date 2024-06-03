@@ -1,5 +1,5 @@
 prefixes:
-  ega.dataset: https://www.ebi.ac.uk/ega/datasets/
+  ega.samples: https://metadata.ega-archive.org/samples/
   NCIT: http://purl.obolibrary.org/obo/NCIT_
   OMIABIS: http://purl.obolibrary.org/obo/OMIABIS_
   OBI: http://purl.obolibrary.org/obo/OBI_
@@ -10,10 +10,10 @@ mappings:
   fairgenomes:
     sources:
       - [samples.csv~csv] # I am going to name it like this samples.csv
-    s: ega.dataset:$(accession_id) # I am unsure for this part, I have not changed
+    s: ega.samples:$(accession_id) # I am unsure for this part, I have not changed
     po:
       - [a, NCIT:C43376]
-      - [OMIABIS:0000006, ega.dataset:$(accession_id)~iri] #I am unsure for this part,too
+      - [OMIABIS:0000006, ega.samples:$(accession_id)~iri] #I am unsure for this part,too
       - [NCIT:C93400, $(accesion_id)] # This is new. Are we going to use instead of the accesion_id over? 
       - [EFO:0005518, $(description)] # This is new 
       - [GSSO:009418, $(biological_sex)] # This is new 
