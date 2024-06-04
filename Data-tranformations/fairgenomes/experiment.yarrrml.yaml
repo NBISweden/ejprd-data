@@ -1,5 +1,5 @@
 prefixes:
-  ega.dataset: https://www.ebi.ac.uk/ega/datasets/
+  ega.runs: https://metadata.ega-archive.org/runs/
   NCIT: http://purl.obolibrary.org/obo/NCIT_
   OMIABIS: http://purl.obolibrary.org/obo/OMIABIS_
   EDAM: https://bioportal.bioontology.org/ontologies/EDAM?p=classes&conceptid=
