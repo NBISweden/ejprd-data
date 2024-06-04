@@ -1,0 +1,51 @@
+prefixes:
+  ega.samples: https://metadata.ega-archive.org/samples/
+  NCIT: http://purl.obolibrary.org/obo/NCIT_
+  OMIABIS: http://purl.obolibrary.org/obo/OMIABIS_
+  OBI: http://purl.obolibrary.org/obo/OBI_
+  EFO: http://www.ebi.ac.uk/efo/EFO_ # I added this one
+  GSSO: http://purl.obolibrary.org/obo/GSSO_ # I added this one
+  fgs: https://w3id.org/fair-genomes/ontology/ # I added this one
+
+mappings: # this is for material 
+  fairgenomes:
+    sources:
+      - [samples.csv~csv] 
+    s: ega.samples:$(accession_id) 
+    po:
+      - [a, NCIT:C43376] # "Biologically-Derived Material"
+      - [a, fgs:Material]
+      - [OMIABIS:0000006, ega.samples:$(accession_id)~iri] # "Sample collection or study identifier"
+      - [NCIT:C93400, $(accesion_id)] # "Material identifier"
+      - [fgs:Material_Material_identifier, $(description)]
+      - [EFO:0005518, $(description)] # "sample collection protocol"
+      - [fgs:Material_Sampling_protocol, $(description)]
+      - [EFO:0000689, $(created_at)] # "sampling time" 
+      - [fgs:Material_Sampling_timestamp, $(description)]
+
+mappings: #this is for personal 
+  fairgenomes:
+    sources:
+      - [samples.csv~csv] 
+    s: ega.samples:$(accession_id) # are we going to keep this one? or change in some way? 
+    po:
+      - [a, NCIT:C90492] # "Personal Information"
+      - [a, fgs:Personal]
+      # I guess that we do not need this one  - [OMIABIS:0000006, ega.samples:$(accession_id)~iri]
+      - [GSSO:009418, $(biological_sex)] # "assigned gender at birth
+      - [fgs:Personal_Gender_at_birth, $(description)]
+      - [NCIT:C164337, $(subject_id)] # "Patient Identifier" 
+      - [fgs:Personal_Personal_identifier, $(description)]
+
+mappings: # this is for clinical 
+  fairgenomes:
+    sources:
+      - [samples.csv~csv] 
+    s: ega.samples:$(accession_id) # are we going to keep this one? or change in some way? 
+    po:
+      - [a, NCIT:C25398] # "Clinical"
+      - [a, fgs:Clinical]
+      # I guess that we do not need this one  - [OMIABIS:0000006, ega.samples:$(accession_id)~iri]
+      - [NCIT:C16977, $(phenotype)] # "Phenotype"
+      - [fgs:Clinical_Phenotype, $(description)]
+

@@ -1,0 +1,18 @@
+prefixes:
+  ega.dataset: https://www.ebi.ac.uk/ega/datasets/
+  NCIT: http://purl.obolibrary.org/obo/NCIT_
+  OMIABIS: http://purl.obolibrary.org/obo/OMIABIS_
+  EDAM: http://edamontology.org/
+  ARF: "http://purl.allotrope.org/ontologies/result#" #this is new and it ends with a #
+
+mappings:
+  fairgenomes:
+    sources:
+      - [analysis_sample.csv~csv] # I will name it like this 
+    s: ega.dataset:$(accession_id)
+    po:
+      - [a, EDAM:operation_2945] # I guess that we will refer to analysis
+      - [OMIABIS:0000006, ega.dataset:$(accession_id)~iri] # I am unsure for this one and I keep it as it is
+      - [NCIT:C132299, $(sample_accession_id)]
+      - [AFR:0001979, $(analysis_accession_id)]
+      - [OMIABIS:0000006, $(study_accession_id)]

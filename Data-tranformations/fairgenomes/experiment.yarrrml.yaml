@@ -1,0 +1,40 @@
+prefixes:
+  ega.runs: https://metadata.ega-archive.org/runs/
+  NCIT: http://purl.obolibrary.org/obo/NCIT_
+  OMIABIS: http://purl.obolibrary.org/obo/OMIABIS_
+  EDAM: https://bioportal.bioontology.org/ontologies/EDAM?p=classes&conceptid=
+  FIX: http://purl.obolibrary.org/obo/FIX_
+  GENEPIO: http://purl.obolibrary.org/obo/GENEPIO_
+  fgs: https://w3id.org/fair-genomes/ontology/ 
+
+
+mappings: # mapping for sequencing
+  fairgenomes:
+    sources:
+      - [experiment.csv~csv] # I am going to name it like this 
+    s: ega.runs:$(accession_id) # I guess that experiment is included in ega.runs otherwise I cannot think something more appropriate from the list
+    po:
+      - [a, EDAM:topic_3168] # "Sequencing"
+      - [a, fgs:Sequencing]
+      - [OMIABIS:0000006, ega.runs:$(accession_id)~iri] # I am unsure for this one, I changed the ega.datasets to ega runs but this OMIABIS:0000006 is not correct. I recommend another identifier in the next line
+      - [NCIT:C171337, $(accession_id)] # "Sequencing Assay Unique Identifier"
+      - [fgs:Sequencing_Sequencing_identifier, $(description)]
+      - [FIX:0000704, $(design_description)] # "Sequencing method"
+      - [fgs:Sequencing_Sequencing_method, $(description)]
+      - [GENEPIO:0000071, $(platform)] # "Sequencing platform"
+      - [fgs:Sequencing_Sequencing_platform, $(description)]
+      - [GENEPIO:0001921, $(model)] # "Sequencing instrument model"
+      - [fgs:Sequencing_Sequencing_instrument_model, $(description)]
+
+
+mappings: # mapping for study 
+  fairgenomes:
+    sources:
+      - [experiment.csv~csv] 
+    s: ega.runs:$(accession_id) # are we going to keep this? 
+    po:
+      - [a, NCIT:C63536] # "Study"
+      - [a, fgs:Study]
+      # I guess that we do not need this- [OMIABIS:0000006, ega.runs:$(accession_id)~iri] 
+      - [OMIABIS:0000006, $(study_accession_id)] # "Study Identifier"
+      - [fgs:Study_Identifier, $(description)]

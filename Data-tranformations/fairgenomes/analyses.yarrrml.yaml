@@ -1,0 +1,57 @@
+prefixes:
+  ega.analyses: https://metadata.ega-archive.org/analyses/
+  NCIT: http://purl.obolibrary.org/obo/NCIT_
+  OMIABIS: http://purl.obolibrary.org/obo/OMIABIS_
+  OBI: http://purl.obolibrary.org/obo/OBI_
+  ARF: "http://purl.allotrope.org/ontologies/result#"
+  EDAM: http://edamontology.org/ 
+  FIX: http://purl.obolibrary.org/obo/FIX_
+  GENEPIO: http://purl.obolibrary.org/obo/GENEPIO_
+  fgs: https://w3id.org/fair-genomes/ontology/ 
+
+
+mappings: # mapping for analysis
+  fairgenomes:
+    sources:
+      - [analyses.csv~csv]
+    s: ega.analyses:$(accession_id)
+    po:
+      - [a, EDAM:operation_2945] # "Analysis"
+      - [a, fgs:Analysis]
+      - [OMIABIS:0000006, ega.analyses:$(accession_id)~iri] # I am unsure about this. However I feel that this OMIABIS:0000006 is wrong
+      - [AFR:0001979, $(accession_id)] # "Analysis Identifier"
+      - [fgs:Analysis_Analysis_identifier, $(description)]
+      - [EDAM:data_2531, $(description)] # "Bioinformatic protocol used"
+      - [fgs:Analysis_Bioinformatic_protocol_used, $(description)]
+      - [EDAM:data_2531, $(analysis_type)] # "Bioinformatic protocol used"
+      - [fgs:SAnalysis_Bioinformatic_protocol_used, $(description)]
+      - [EDAM:data_2340, $(genome)] #  "Reference genome used"
+      - [fgs:Analysis_Reference_genome_used, $(description)]
+
+mappings: # mapping for Sequencing
+  fairgenomes:
+    sources:
+      - [analyses.csv~csv]
+    s: ega.analyses:$(accession_id)
+    po:
+      - [a, EDAM:topic_3168] # "Sequencing"
+      - [a, fgs:Sequencing]
+      # I guess that we delete this one - [OMIABIS:0000006, ega.analyses:$(accession_id)~iri] # I am unsure about this
+      - [FIX:0000704, $(experiment_types)] # "Sequencing method"
+      - [fgs:Sequencing_Sequencing_method, $(description)]
+      - [GENEPIO:0000071, $(platform)] # "Sequencing platform"
+      - [fgs:Sequencing_Sequencing_platform, $(description)]
+      - [GENEPIO:0000069, $(created_at)] # " sequencing date"
+      - [fgs:Sequencing_Sequencing_date, $(description)]
+
+mappings: # mapping for study
+  fairgenomes:
+    sources:
+      - [analyses.csv~csv]
+    s: ega.analyses:$(accession_id)
+    po:
+      - [a, NCIT:C63536] # "Study"
+      - [a, fgs:Study]
+      # I guess that we delete this one - [OMIABIS:0000006, ega.analyses:$(accession_id)~iri] # I am unsure about this
+      - [OMIABIS:0000006, $(study_accession_id)] # " Identifier"
+      - [fgs:Study_Identifier, $(description)]
